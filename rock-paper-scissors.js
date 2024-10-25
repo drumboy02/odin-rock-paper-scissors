@@ -7,15 +7,17 @@ function getComputerChoice() {
     } else if (choice === 3) {
         choice = "scissors";
     }
-    console.log("getComputerChoice:", choice);
+
+    return choice;
 }
 
 function getHumanChoice() {
-    let choice = prompt("Choose rock, paper, or scissors").toLowerCase();
+    let choice = prompt("Choose Rock, Paper, or Scissors").toLowerCase();
     if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
         getHumanChoice();
     } else {
-        console.log("getHumanChoice:", choice);
+
+        return choice;
     }
 }
 
@@ -23,8 +25,55 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    getHumanChoice();
-    getComputerChoice();
+    console.log("humanChoice: " + humanChoice);
+    console.log("computerChoice: " + computerChoice);
+    switch (`${humanChoice} ${computerChoice}`) {
+        case "rock paper":
+        case "paper rock":
+            if (humanChoice === "paper") {
+                humanScore += 1;
+                console.log("You win! Paper beats Rock");
+                break;
+            } else {
+                computerScore += 1;
+                console.log("You lose! Paper beats Rock");
+                break;
+            }
+        case "rock scissors":
+        case "scissors rock":
+            if (humanChoice === "rock") {
+                humanScore += 1;
+                console.log("You win! Rock beats Scissors");
+                break;
+            } else {
+                computerScore += 1;
+                console.log("You lose! Rock beats Scissors");
+                break;
+            }
+        case "paper scissors":
+        case "scissors paper":
+            if (humanChoice === "scissors") {
+                humanScore += 1;
+                console.log("You win! Scissors beats Paper");
+                break;
+            } else {
+                computerScore += 1;
+                console.log("You lose! Scissors beats Paper");
+                break;
+            }
+        default:
+            console.log("It's a tie. Choose again")
+            playRound(getHumanChoice(), getComputerChoice());
+            break;
+    }
 }
 
-playRound();
+playRound(getHumanChoice(), getComputerChoice());
+console.log("humanScore: " + humanScore);
+console.log("computerScore: " + computerScore);
+playRound(getHumanChoice(), getComputerChoice());
+console.log("humanScore: " + humanScore);
+console.log("computerScore: " + computerScore);
+playRound(getHumanChoice(), getComputerChoice());
+console.log("humanScore: " + humanScore);
+console.log("computerScore: " + computerScore);
