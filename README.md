@@ -2,4 +2,5 @@
 
 TOP Project: Rock Paper Scissors
 
-This project will be a game of rock, paper, scissors that plays in the browser console
+This project is the game rock, paper, scissors. You must open the browser developer console to play.
+Click cancel on the first prompt and refresh the page. The game is finished after five rounds.
