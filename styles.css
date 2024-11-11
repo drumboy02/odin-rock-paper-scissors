@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+    color: yellow;
+    font-family: monospace, sans-serif;
+}
+
+.buttons-div {
+    margin: 3%;
+    padding: 1.5%;
+    border: 2px solid white;
+}
+
+.btn-rock {
+    border: 2px solid red;
+    font-family: monospace, sans-serif;
+}
+
+.btn-paper {
+    border: 2px solid purple;
+    font-family: monospace, sans-serif;
+}
+
+.btn-scissors {
+    border: 2px solid silver;
+    font-family: monospace, sans-serif;
+}
+
+.info-div {
+    margin: 3%;
+    padding: 1.5%;
+    border: 2px solid green;
+}
+
+.round-div {
+    border: 2px dashed red;
+    text-align: center;
+}
+
+.result-div {
+    border: 2px solid royalblue;
+}
+
+.score-div {
+    border: 2px solid salmon;
+}
+
+.winner-div {
+    border: 2px solid wheat;
+}
