@@ -34,9 +34,11 @@ function playGame() {
     round.textContent = `***** Round ${roundNumber} *****`;
     
     function playRound(humanChoice, computerChoice) {
+        console.log("roundNumber: " + roundNumber);
         humanChoice = humanChoice.toLowerCase();
         result.innerText = "humanChoice: " + humanChoice + "\n";
         result.innerText += "computerChoice: " + computerChoice;
+        let tieOrInvalid = false;
         switch (`${humanChoice} ${computerChoice}`) {
             case "rock paper":
             case "paper rock":
@@ -74,17 +76,24 @@ function playGame() {
             case "rock rock":
             case "paper paper":
             case "scissors scissors":
+                tieOrInvalid = true;
                 winner.innerText = "It's a tie. Choose again";          
                 playRound(getHumanChoice(), getComputerChoice());
                 break;
             default:
+                tieOrInvalid = true;
                 winner.innerText = "Choose Rock, Paper, or Scissors";            
                 playRound(getHumanChoice(), getComputerChoice());
         }
-        score.innerText = "humanScore: " + humanScore + "\n";
-        score.innerText += "computerScore: " + computerScore;
-        roundNumber += 1;
-        round.textContent = `***** Round ${roundNumber} *****`;
+        console.log("tieOrInvalid: " + tieOrInvalid);
+        if (!tieOrInvalid) {
+            score.innerText = "humanScore: " + humanScore + "\n";
+            score.innerText += "computerScore: " + computerScore;
+            roundNumber += 1;
+            round.textContent = `***** Round ${roundNumber} *****`;
+        } else {
+            roundNumber = roundNumber;
+        }
     }
     
     btnRock.addEventListener('click', () => {
