@@ -23,16 +23,19 @@ body {
 .btn-rock {
     border: 2px double red;
     font-family: monospace, sans-serif;
+    background: white;
 }
 
 .btn-paper {
     border: 2px double purple;
     font-family: monospace, sans-serif;
+    background: white;
 }
 
 .btn-scissors {
-    border: 2px double silver;
+    border: 2px double gray;
     font-family: monospace, sans-serif;
+    background: white;
 }
 
 .btn-rock:hover, .btn-paper:hover, .btn-scissors:hover {
@@ -44,7 +47,7 @@ body {
 .winner-div {
     border: 2px dashed cyan;
     color: cyan;
-    margin: 0.8em;
+    margin: 0.4em;
     padding: 4px;
     display: none;
 }
@@ -70,5 +73,6 @@ body {
 .score-div {
     border: 2px dashed;
     padding: 8px;
+    margin: 0.1em;
     display: none;
 }

@@ -30,7 +30,7 @@ function playGame() {
     
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.toLowerCase();
-        roundInfo.innerText = "***** Round #" + roundNumber + " Result *****";
+        roundInfo.innerText = "****** Round #" + roundNumber + " Result ******";
         result.innerText = "Your choice: " + humanChoice + "\n";
         result.innerText += "Computers Choice: " + computerChoice;
         let tieOrInvalid = false;
@@ -97,6 +97,7 @@ function playGame() {
             if (humanScore > computerScore) {
                 round.innerText = "***** You Win! *****";
                 round.appendChild(score);
+                roundInfo.appendChild(winner);
                 btnRock.removeEventListener('click', handleClickRock);
                 btnPaper.removeEventListener('click', handleClickPaper);
                 btnScissors.removeEventListener('click', handleClickScissors);
@@ -104,10 +105,10 @@ function playGame() {
             } else {
                 round.innerText = "***** You Lose! *****";
                 round.appendChild(score);
+                roundInfo.appendChild(winner);
                 btnRock.removeEventListener('click', handleClickRock);
                 btnPaper.removeEventListener('click', handleClickPaper);
                 btnScissors.removeEventListener('click', handleClickScissors);
-                return;
             }
         }
     }
