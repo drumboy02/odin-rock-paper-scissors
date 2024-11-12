@@ -1,53 +1,74 @@
 body {
-    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: black;
     color: yellow;
     font-family: monospace, sans-serif;
+    margin-top: 1.4em;
+}
+
+.round-div {
+    border: 2px dashed yellow;
+    text-align: center;
+    margin: 0.2em;
+    padding: 4px;
 }
 
 .buttons-div {
-    margin: 3%;
-    padding: 1.5%;
-    border: 2px solid white;
+    margin: 0.8em;
+    padding: 8px;
 }
 
 .btn-rock {
-    border: 2px solid red;
+    border: 2px double red;
     font-family: monospace, sans-serif;
 }
 
 .btn-paper {
-    border: 2px solid purple;
+    border: 2px double purple;
     font-family: monospace, sans-serif;
 }
 
 .btn-scissors {
-    border: 2px solid silver;
+    border: 2px double silver;
     font-family: monospace, sans-serif;
 }
 
-.info-div {
-    margin: 3%;
-    padding: 1.5%;
-    border: 2px solid green;
-}
-
-.round-div {
-    border: 2px dashed red;
-    text-align: center;
-}
-
-.result-div {
-    border: 2px solid royalblue;
-}
-
-.score-div {
-    border: 2px solid salmon;
+.btn-rock:hover, .btn-paper:hover, .btn-scissors:hover {
+    background: black;
+    color: yellow;
+    cursor: pointer;
 }
 
 .winner-div {
-    border: 2px solid wheat;
+    border: 2px dashed cyan;
+    color: cyan;
+    margin: 0.8em;
+    padding: 4px;
+    display: none;
+}
+
+.info-div {
+    margin: 0.8em;
+    padding: 8px;
+    color: fuchsia;
+    border: 2px dashed cyan;
+}
+
+.round-info-div {
+    text-align: center;
+    border: 2px dashed;
+    padding: 4px;
+}
+
+.result-div {
+    border: 2px dashed;
+    padding: 8px;
+}
+
+.score-div {
+    border: 2px dashed;
+    padding: 8px;
+    display: none;
 }

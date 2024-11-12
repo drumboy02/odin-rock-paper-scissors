@@ -6,6 +6,7 @@ const round = document.querySelector(".round-div");
 const result = document.querySelector(".result-div");
 const winner = document.querySelector(".winner-div");
 const score = document.querySelector(".score-div");
+const roundInfo = document.querySelector(".round-info-div");
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3) + 1;
@@ -28,43 +29,43 @@ function playGame() {
     round.textContent = `***** Round ${roundNumber} *****`;
     
     function playRound(humanChoice, computerChoice) {
-        console.log("roundNumber: " + roundNumber);
         humanChoice = humanChoice.toLowerCase();
-        result.innerText = "humanChoice: " + humanChoice + "\n";
-        result.innerText += "computerChoice: " + computerChoice;
+        roundInfo.innerText = "***** Round #" + roundNumber + " Result *****";
+        result.innerText = "Your choice: " + humanChoice + "\n";
+        result.innerText += "Computers Choice: " + computerChoice;
         let tieOrInvalid = false;
         
         switch (`${humanChoice} ${computerChoice}`) {
             case "rock paper":
             case "paper rock":
                 if (humanChoice === "paper") {
-                    winner.innerText = "You win! Paper beats Rock";                    
+                    winner.innerText = "You won! Paper beats Rock";                    
                     humanScore += 1;
                     break;
                 } else {
-                    winner.innerText = "You lose! Paper beats Rock";                    
+                    winner.innerText = "You lost! Paper beats Rock";                    
                     computerScore += 1;
                     break;
                 }
             case "rock scissors":
             case "scissors rock":
                 if (humanChoice === "rock") {
-                    winner.innerText = "You win! Rock beats Scissors";                    
+                    winner.innerText = "You won! Rock beats Scissors";                    
                     humanScore += 1;
                     break;
                 } else {
-                    winner.innerText = "You lose! Rock beats Scissors";                    
+                    winner.innerText = "You lost! Rock beats Scissors";                    
                     computerScore += 1;
                     break;
                 }
             case "paper scissors":
             case "scissors paper":
                 if (humanChoice === "scissors") {
-                    winner.innerText = "You win! Scissors beats Paper";                    
+                    winner.innerText = "You won! Scissors beats Paper";                    
                     humanScore += 1;
                     break;
                 } else {
-                    winner.innerText = "You lose! Scissors beats Paper";                    
+                    winner.innerText = "You lost! Scissors beats Paper";                    
                     computerScore += 1;
                     break;
                 }
@@ -79,25 +80,30 @@ function playGame() {
                 tieOrInvalid = true;
                 winner.innerText = "Choose Rock, Paper, or Scissors";            
         }
-
+        
         if (!tieOrInvalid) {
-            score.innerText = "humanScore: " + humanScore + "\n";
-            score.innerText += "computerScore: " + computerScore;
+            score.style.display = "block";
+            score.innerText = "Player Score: " + humanScore + "\n";
+            score.innerText += "Computer Score: " + computerScore;
             roundNumber += 1;
             round.textContent = `***** Round ${roundNumber} *****`;
+            winner.style.display = "block";
         }  else {
             roundNumber = roundNumber;
+            winner.style.display = "block";
         }
 
         if (roundNumber === 6) {
             if (humanScore > computerScore) {
                 round.innerText = "***** You Win! *****";
+                round.appendChild(score);
                 btnRock.removeEventListener('click', handleClickRock);
                 btnPaper.removeEventListener('click', handleClickPaper);
                 btnScissors.removeEventListener('click', handleClickScissors);
                 return;
             } else {
                 round.innerText = "***** You Lose! *****";
+                round.appendChild(score);
                 btnRock.removeEventListener('click', handleClickRock);
                 btnPaper.removeEventListener('click', handleClickPaper);
                 btnScissors.removeEventListener('click', handleClickScissors);
